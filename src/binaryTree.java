@@ -72,6 +72,26 @@ public class binaryTree {
             }
         }
     }
+
+    // iterative for inorder traversal
+    public void inOrderIterative(){
+        if(root == null){
+            return;
+        }
+        Stack <treeNode> stack = new Stack<>();
+        stack.push(root);
+
+        while(!stack.isEmpty()){
+            treeNode temp = stack.pop();
+            if(temp.left != null){
+                stack.push(temp.left);
+            }
+            System.out.print(temp.data + " ");
+            if(temp.right != null){
+                stack.push(temp.right);
+            }
+        }
+    }
     public static void main(String[] args) {
         binaryTree bt = new binaryTree();
         bt.createBinaryTree();
@@ -82,6 +102,8 @@ public class binaryTree {
         bt.postOrder(root);
         System.out.print("\n");
         bt.preOrderIterative();
+        System.out.print("\n");
+        bt.inOrderIterative();
 
     }
 
